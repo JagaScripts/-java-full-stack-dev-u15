@@ -225,19 +225,159 @@ INSERT INTO equipos (numero_serie, nombre, facultad) VALUES
 ("dass", "Equipo1", 1);
 
 INSERT INTO reserva (DNI, numero_serie, comienzo, fin) VALUES 
-("12345684", "fase",'2010/05/10','2010/06/10'),
-('12345686', "dfsd", '2010/05/23', '2010/06/12'),
-("12345685", "uER3", "2010/05/23", "2010/06/12"),
-("12345687", "uER3", "2010/05/23", "2010/06/12"),
-("12345688", "sdfe", "2010/05/23", "2010/06/12"),
-("12345689", "dssd", "2010/05/23", "2010/06/12"),
-("12345610", "JKds", "2010/03/23", "2010/06/12"),
-("12345611", "JKds", "2010/05/23", "2010/06/12"),
-("12345612", "Sdfa", "2010/03/23", "2010/06/12"),
-("12345613", "dass", "2010/05/23", "2010/04/12");
+("12345684", "fase",'2010-05-10','2010-06-10'),
+('12345686', "dfsd", '2010-05-23', '2010-06-12'),
+("12345685", "uER3", "2010-05-23", "2010-06-12"),
+("12345687", "uER3", "2010-05-23", "2010-06-12"),
+("12345688", "sdfe", "2010-05-23", "2010-06-12"),
+("12345689", "dssd", "2010-05-23", "2010-06-12"),
+("12345610", "JKds", "2010-03-23", "2010-06-12"),
+("12345611", "JKds", "2010-05-23", "2010-06-12"),
+("12345612", "Sdfa", "2010-03-23", "2010-06-12"),
+("12345613", "dass", "2010-05-23", "2010-04-12");
 
 SELECT * FROM facultades;
-SELECT * FROM investigadores; 
+SELECT * FROM investigadores;
 SELECT * FROM equipos;
 SELECT * FROM reserva;
+```
+Ejercicio 2 Unidad 12
+
+``` sql
+USE  academia_de_clases;
+INSERT INTO empresa (cif, nombre, telefono, direccion) VALUES
+('12345678V','T-Systems',346932514,'Reus Calle la piedra 23'),
+('12345679V','Dapsa',346932515,'Amposta Calle loro SN'),
+('12345671V','Colsa',346932516,'Paterna Poligono Ind. fuente el Jarro'),
+('12345672V','Diusframi',346932517,'Madrid Avendia Industria'),
+('12345673V','Lamigraf',346932518,"Carrer Mas Dorca, 14, 08480 LAmetlla del Vallès, Barcelona");
+
+INSERT INTO alumno (dni, nombre, telefono, direccion, edad, cif) VALUES 
+('12345684V','Jose A',346932514,"LAmpolla",39,'12345678V'),
+('12345685V','Jose',346932515,'Paterna Poligono Ind. fuente el Jarro',28,'12345679V'),
+('12345686V','Daniel',346932516,'Tarragona',25,'12345671V'),
+('12345687V','Joan',346932517,'Reus Calle la piedra 23',23,'12345672V'),
+('12345688V','Miguel',346932518,"Carrer Mas Dorca, 14, 08480 L\'Ametlla del Vallès, Barcelona",26,'12345673V');
+
+INSERT INTO profesor (dni, nombre, apellidos, telefono, direccion) VALUES 
+('13345684V','Jose A','González',346932514,"L\'Ampolla Ramon Llull"),
+('14345685V','Jose','Martinez',346932515,'Paterna Poligono Ind. fuente el Jarro'),
+('15345686V','Daniel','Fernandez',346932516,'Tarragona Carrer Mas Dorca, 24, 08480'),
+('16345687V','Joan','Hurtado',346932517,'Reus Carrer Mas Dorca, 14'),
+('17345688V','Miguel','Alcántara',346932518,"Calle la piedra 08480 L\'Ametlla del Vallès, Barcelona");
+
+INSERT INTO programa (id_programa, codigo, titulo, fecha_inicio, fecha_fin, cursos_duracion) VALUES 
+(NULL,'JR09458', 'Grado Ingeniería Informatica', '1997-06-21', CURRENT_DATE(),DEFAULT),
+(NULL,'JR09459', 'Grado Ingeniería Telecomunicaciones', '1998-06-21', CURRENT_DATE(),DEFAULT),
+(NULL,'JR09410', 'Grado Ingeniería Mecanica', '1999-06-21', CURRENT_DATE(),DEFAULT),
+(NULL,'JR09411', 'Grado Ingeniería Industrial', '2000-06-21', CURRENT_DATE(),DEFAULT),
+(NULL,'JR09412', 'Grado Matemáticas', '2001-06-21', CURRENT_DATE(),DEFAULT);
+
+INSERT INTO curso (id_curso, id_programa, dni, codigo, titulo, fecha_inicio, fecha_fin, meses_duracion) VALUES 
+(NULL, 1, '13345684V', 'JR09458', 'Fundamentos Informatica', '1997-06-21', CURRENT_DATE(),DEFAULT),
+(NULL, 2, '14345685V', 'JR09459', 'Fundamentos Telecomunicaciones', '1998-06-21', CURRENT_DATE(),DEFAULT),
+(NULL, 3, '15345686V', 'JR09410', 'Fundamentos Mecanica', '1999-06-21', CURRENT_DATE(),DEFAULT),
+(NULL, 4, '16345687V', 'JR09411', 'Fundamentos Industrial', '2000-06-21', CURRENT_DATE(),DEFAULT),
+(NULL, 5, '17345688V', 'JR09412', 'Fundamentos Matemáticas', '2001-06-21', CURRENT_DATE(),DEFAULT);
+
+INSERT INTO cursar (dni, id_curso, nota) VALUES 
+('12345684V', 1, 10),
+('12345685V', 2, 9),
+('12345686V', 3, 8),
+('12345687V', 4, 7),
+('12345688V', 5, 5);
+
+
+
+SELECT * FROM alumno;
+SELECT * FROM profesor;
+SELECT * FROM programa;
+SELECT * FROM curso;
+SELECT * FROM empresa;
+SELECT * FROM cursar;
+```
+
+Ejercicio 8 Unidad 12
+
+``` sql
+INSERT INTO EJ8.AEROPUERTO (CodigoAeropuerto,NombreAeropuerto,Pais,Localidad)
+VALUES
+	('Central6', 'AeropuertoReus', 'España', 'Tarragona'),
+	('Central2', 'AeropuertoBarcelona', 'España', 'Barcelona'),
+	('Central3', 'AeropuertoKampala', 'Uganda', 'Kampala'),
+	('Central4', 'AeropuertoVendrell', 'España', 'Vendrell'),
+	('Central5', 'AeropuertoLleida', 'España', 'Lleida');
+    
+INSERT INTO EJ8.AVIO (Codigoavion,NumPlazas)
+VALUES
+	('AV1','A1'),
+	('AV2','A2'),
+	('AV3','A3'),
+	('AV4','A4'),
+	('AV5','A5');
+    
+INSERT INTO EJ8.CLIENTES (DNI,NombreCliente,DireccionClientes,TelefonoClientes,TarjetaClientes)
+VALUES
+	('48523183N','Daniel','casa paco','telefono1','targeta1'),
+	('78564138N','Joan','casa angel','telefono2','targeta1'),
+	('12531535N','Marc','casa wvxx','telefono3','targeta1'),
+	('34472145N','Jose','casa fernando','telefono4','targeta1'),
+	('78564138N','Aida','casa pedre','telefono5','targeta1');
+    
+INSERT INTO EJ8.EMBARQUE (NumeroReserva,FechaEmbarque,CodigoCliente)
+VALUES
+	('R1','20/11/2022','48523183N'),
+	('R2','10/07/2022','34472145N'),
+	('R3','15/08/2022','12531535N'),
+	('R4','07/06/2022','78564138N'),
+	('R5','21/11/2022','78564138N');
+INSERT INTO EJ8.Fer (CodigoVuelo,CodigoAeropuerto)
+VALUES
+	('VO1','Central3'),
+	('VO1','Central4'),
+	('VO1','Central6'),
+	('VO1','Central1'),
+	('VO1','Central2');
+    
+INSERT INTO EJ8.VOLS (CodigoVuelo,FechaSalida,FechaLlegada,AeropuertoOrigen,AeropuertoDestino,CodigoAvio)
+VALUES
+	('VO1','20/11/2022','20/11/2022','España','Uganda','AV5'),
+	('VO2','10/07/2022','05/11/2022','España','Uganda','AV5'),
+	('VO3','15/08/2022','13/11/2022','España','Uganda','AV5'),
+	('VO4','07/06/2022','15/11/2022,','España','España','AV3'),
+	('VO5','21/11/2022','23/11/2022','España','España','AV3');
+INSERT INTO EJ8.Reserva (DNI,CodigoVuelo)
+VALUES
+	('48523183N','AV1'),
+	('78564138N','AV3'),
+	('12531535N','AV4'),
+	('78564138N','AV5'),
+	('34472145N','AV2');
+INSERT INTO EJ8.LLOC (NumeroAsiento,FilaAvion,ColumnaAvion,PlantaAvion,CodigoAvion,NumeroReserva)
+VALUES
+	('AJ1','A1','A','B1','AV3','R1'),
+	('AJ2','A2','A','B1','AV3','R2'),
+	('AJ3','A3','B','B1','AV3','R3'),
+	('AJ4','A4','B,','B1','AV3','R4'),
+	('AG1','A5','C','B1','AV3','R5');
+```
+
+Ejercicio 14 Unidad 12
+
+``` sql
+INSERT INTO Usuarios (Contraseña,Nombre,Apellidos,foto) VALUES ("Contraseña","Rudy","Fernandez","D",1);
+INSERT INTO Usuarios (Contraseña,Nombre,Apellidos,foto) VALUES ("Contraseña","Cristiano","Ronaldo","D",1);
+
+INSERT INTO Celebridad(verificado,idUsuarios) VALUES(true,1);
+INSERT INTO Comun(direccion,email,idComun)values("C/Badalona","hola@gmail.com",2);
+
+INSERT INTO Comentarios(texto,imagen,idUsuario) values("Texto de Ejemplo",null,1);
+INSERT INTO Comentarios(texto,imagen,idUsuario) values("Texto de Ejemplo",null,2);
+
+Insert into Grupos(id,nombre) value(1,"Grupo de amigos");
+
+Insert into EsContacto(idUsuario,bloqueado) value(1,false);
+
+Insert into Tienen(idUsuario,idGrupos) value(1,1);
+Insert into Tienen(idUsuario,idGrupos) value(2,1);
 ```
